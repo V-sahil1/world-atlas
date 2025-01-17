@@ -30,7 +30,7 @@ function CountryDetails() {
     if(ispanding) return<Loader/>
     
   return (
-   <section className='coar country-details-card container'>
+   <section className='card country-details-card container'>
     <div className='container-card bg-white-box'>
 
   
@@ -88,16 +88,18 @@ function CountryDetails() {
             </div>
           </div>
         )}
-        <div className='country-card-backbtn'>
+       
+       <div className='country-card-backbtn'>
         <NavLink to= "/country"  className='backbtn' >
-         <button >
+         <button  className='country-card-backbtn' >
            Go Back
          </button>  </NavLink>
          <NavLink></NavLink>
 
         </div>
-       
     </div>
+    
+       
 
    </section>
   )

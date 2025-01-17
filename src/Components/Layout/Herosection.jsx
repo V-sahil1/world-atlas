@@ -10,7 +10,7 @@ function Herosection() {
           <h1>Explore the World, One Country at a Time.</h1>
           <p className="p">
             Discover the history, culture, and beauty of every
-            nation.Sort,search,and filter through countries to find the details
+            nation.Sort,search,and filter through countries to find the details hello
             you need.{" "}
           </p>
           <NavLink to="about">

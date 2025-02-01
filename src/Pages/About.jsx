@@ -10,13 +10,13 @@ function About() {
    <h2 className='container-title'>
    Here are the Interesting Facts <br />we're proud of</h2>
    
-   <div className='gradient-cards'>
+   <div className='gradient-cards '>
    {
           CountryData.map((value)=>{
             const {id,countryName,capital,population,interestingFact} = value
             return(
-              <div className='card' key={id} > 
-      <div className='container-card bg-blue-box'>
+              <div className='card  element' key={id} > 
+      <div className='container-card bg-blue-box '>
      
         <p className='card-title' key={countryName}>{value.countryName}</p>
         <p>

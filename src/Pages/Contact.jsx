@@ -38,7 +38,7 @@ function Contact() {
               name="massage"
               className="form-control"
             ></textarea>
-            <button type="submit" value="send">
+            <button type="submit" value="send" style={{display:'flex',justifyContent:'center'}}>
               Send
             </button>
           </form>

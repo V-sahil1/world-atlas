@@ -1,40 +1,37 @@
-import React, { useEffect, useTransition } from 'react'
-import { useState } from 'react'
-import { NavLink, useParams } from 'react-router-dom'
-import Loader from '../Ui/Loader';
-import { getCountryindData } from '../../Api/PostApi';
+import React, { useEffect, useTransition } from "react";
+import { useState } from "react";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
+import Loader from "../Ui/Loader";
+import { getCountryindData } from "../../Api/PostApi";
 
 function CountryDetails() {
-   const params =useParams();
+  const params = useParams();
+  const navigate = useNavigate();
 
-   
-   const [ispanding,startTransition]= useTransition()
-   const [country,setCountry] = useState()
-   
-   
+  const [ispanding, startTransition] = useTransition();
+  const [country, setCountry] = useState();
 
-    useEffect(()=>{
-      startTransition(async()=>{
-        const res = await getCountryindData(params.id);
-        console.log(res);
-        if(res.status ===200){
-          console.log(res.data[0]);
-          
-           setCountry(res.data[0])
+  useEffect(() => {
+    startTransition(async () => {
+      const res = await getCountryindData(params.id);
+      console.log(res);
+      if (res.status === 200) {
+        console.log(res.data[0]);
 
-        }
-        
-      })
-  
-    },[params.id])
-    if(ispanding) return<Loader/>
-    
+        setCountry(res.data[0]);
+      }
+    });
+  }, [params.id]);
+  if (ispanding) return <Loader />;
+
+  const handleNavigation = () => {
+    navigate("/country");
+  };
+
   return (
-   <section className='card country-details-card container'>
-    <div className='container-card bg-white-box'>
-
-  
-    {country  && (
+    <section className="card country-details-card container">
+      <div className="container-card bg-white-box">
+        {country && (
           <div className="country-image grid grid-two-cols">
             <img
               src={country.flags.svg}
@@ -88,21 +85,16 @@ function CountryDetails() {
             </div>
           </div>
         )}
-       
-       <div className='country-card-backbtn'>
-        <NavLink to= "/country"  className='backbtn' >
-         <button  className='country-card-backbtn' >
-           Go Back
-         </button>  </NavLink>
-         <NavLink></NavLink>
 
+        <div className="country-card-backbtn">
+          <button className="country-card-backbtn" onClick={handleNavigation}>
+            Go Back
+          </button>{" "}
+          
         </div>
-    </div>
-    
-       
-
-   </section>
-  )
+      </div>
+    </section>
+  );
 }
 
-export default CountryDetails
+export default CountryDetails;
